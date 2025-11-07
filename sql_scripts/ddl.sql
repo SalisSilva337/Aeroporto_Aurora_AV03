@@ -4,8 +4,7 @@ CREATE TABLE Passageiro (
     Nome VARCHAR(100) NOT NULL, 
     Email VARCHAR(100) UNIQUE NOT NULL, 
     Telefone VARCHAR(20) NOT NULL,
-    Senha VARCHAR(255) NOT NULL,
-    Conta_Ativa BOOLEAN NOT NULL DEFAULT(TRUE)
+    Senha BYTEA NOT NULL
 ); 
 
 -- Tabela de Reservas 

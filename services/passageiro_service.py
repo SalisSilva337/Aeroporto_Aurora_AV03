@@ -1,10 +1,12 @@
 from config.db import criar_conexao
+from config.crypt import checar_password, criptografar
 
 
-def inserir_passageiro (nome, email, senha, telefone):
-    conn = criar_conexao()
+def cadastrar_passageiro (nome, email, senha, telefone):
     try:
+        conn = criar_conexao()
         cursor = conn.cursor()
+        senha = criptografar(senha)
         query = "INSERT INTO passageiro (nome, email, senha, telefone) VALUES (%s,%s,%s)"
         cursor.execute(query,(nome, email, senha, telefone))
         conn.commit()
@@ -16,15 +18,15 @@ def inserir_passageiro (nome, email, senha, telefone):
         conn.close()
 
 def listar_passageiros(): 
-    conn = criar_conexao()
     try:
+        conn = criar_conexao()
         cursor = conn.cursor()
         query = "SELECT * FROM passageiro"
         cursor.execute(query)
         passageiros = cursor.fetchall()
         if passageiros:
             for p in passageiros:
-                print(p)
+                print(str(p))
         else:
             print("Nenhum passageiro encontrado")
     except Exception as e:
@@ -32,3 +34,18 @@ def listar_passageiros():
     finally:
         cursor.close()
         conn.close()
+
+
+def logar_passageiro(email, password):
+    
+    con = criar_conexao()
+    cursor = con.cursor()
+    try:
+        query = "SELECT * FROM passageiro WHERE email=%s"
+        cursor.execute(query, (email,))
+        user = cursor.fetchone()
+        if user and checar_password(password, bytes(user[4])):
+            return user
+        return None
+    except Exception as e:
+        print(e)
