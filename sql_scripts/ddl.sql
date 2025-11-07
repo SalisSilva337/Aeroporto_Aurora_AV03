@@ -3,7 +3,9 @@ CREATE TABLE Passageiro (
     ID_passageiro SERIAL PRIMARY KEY, 
     Nome VARCHAR(100) NOT NULL, 
     Email VARCHAR(100) UNIQUE NOT NULL, 
-    Telefone VARCHAR(20) NOT NULL
+    Telefone VARCHAR(20) NOT NULL,
+    Senha VARCHAR(255) NOT NULL,
+    Conta_Ativa BOOLEAN NOT NULL DEFAULT(TRUE)
 ); 
 
 -- Tabela de Reservas 
@@ -11,9 +13,8 @@ CREATE TABLE Reserva (
     ID_reserva SERIAL PRIMARY KEY,
     ID_passageiro INT NOT NULL,
     ID_voo INT NOT NULL,
-    Numeracao VARCHAR(20) UNIQUE NOT NULL,
     Classe VARCHAR(20) NOT NULL CHECK (Classe IN ('Economica', 'Executiva', 'Primeira Classe')),
-    MetodoPagamento VARCHAR(50) NOT NULL,
+    MetodoPagamento VARCHAR(50) NOT NULL CHECK (MetodoPagamento IN ('PIX', 'DEBITO', 'CREDITO')),
     QuantidadePassageiros INT NOT NULL,
     Data DATE NOT NULL,
     FOREIGN KEY (ID_passageiro) REFERENCES Passageiro(ID_passageiro),
@@ -26,9 +27,16 @@ CREATE TABLE Voo (
     ID_reserva INT, 
     Local_Partida VARCHAR(100) NOT NULL, 
     Local_Destino VARCHAR(100) NOT NULL, 
-    Distancia DECIMAL(10,2) NOT NULL, 
-    Disponibilidade BOOLEAN NOT NULL
+    Disponibilidade BOOLEAN NOT NULL,
+    Duracao INTERVAL NOT NULL,
 ); 
+
+-- Tabela de Aviao
+CREATE TABLE Aviao (
+    ID_Aviao SERIAL PRIMARY KEY,
+    Modelo VARCHAR(100) NOT NULL,
+    Capacidade INT NOT NULL
+);
 
 -- Tabela de Tripulação 
 CREATE TABLE Tripulacao ( 
@@ -39,5 +47,5 @@ CREATE TABLE Tripulacao (
     MecanicoRadio INT NOT NULL, 
     ComissariosBordo INT NOT NULL, 
     MecanicosVoo INT NOT NULL, 
-    FOREIGN KEY (ID_voo) REFERENCES Voos(ID_voo) 
+    FOREIGN KEY (ID_voo) REFERENCES Voo(ID_voo) 
 );

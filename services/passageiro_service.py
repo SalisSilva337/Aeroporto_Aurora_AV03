@@ -1,11 +1,12 @@
 from config.db import criar_conexao
 
-def inserir_passageiro (Nome, Email, Telefone):
+
+def inserir_passageiro (nome, email, telefone):
     conn = criar_conexao()
     try:
         cursor = conn.cursor()
-        query = "INSERT INTO passageiro (Nome, Email, Telefone) VALUES (%s,%s,%s)"
-        cursor.execute(query,(Nome,Email,Telefone))
+        query = "INSERT INTO passageiro (nome, email, telefone) VALUES (%s,%s,%s)"
+        cursor.execute(query,(nome,email,telefone))
         conn.commit()
         print("Passageiro Cadastrado")
     except Exception as e:

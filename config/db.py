@@ -3,7 +3,7 @@ import psycopg2
 def criar_conexao():
    try:
        conn = psycopg2.connect(
-           dbname='',
+           dbname='auroradb',
            user='postgres',
            password= 'admin123',
            host= 'localhost',
