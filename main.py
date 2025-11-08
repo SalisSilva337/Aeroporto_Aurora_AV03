@@ -1,14 +1,14 @@
 from config.db import criar_conexao
 from services.passageiro_service import *
-from services.admin_service import gerar_admin_padrao
+from services.admin_service import *
 import os
 
 
 conn = criar_conexao()
 while True:
-    # os.system("cls")
     gerar_admin_padrao()
-    print("1.Cadastrar-se\n2.Logar\n0.Sair do Sistema")
+    # os.system("cls")
+    print(" 1.Cadastrar-se \n 2.Logar \n 0.Sair do Sistema")
     opc = int(input("digite uma opcao: "))
 
     if opc == 1:
@@ -28,11 +28,21 @@ while True:
             print("Logado com sucesso!")
 
             if user[2] == "admin@email.com":
-                listar_passageiros()
+                print("Area do Admin")
+                print(" 1.Listar Passageiros \n 2.Deletar Passageiro \n 3.Criar Voo \n 4.Ver Detalhes dos Voos \n 5.Alterar Voo \n 6.Deletar Voo \n 0.Sair do Sistema")
+                adm_opc = int(input("Digite uma opcao: "))
+                if adm_opc == 1:
+                    listar_passageiros()
+                elif adm_opc == 2:
+                    deletar_passageiro()
+                elif adm_opc == 3:
+                    listar_passageiros()
+                elif adm_opc == 4:
+                    listar_passageiros()
             else:
                 print(f"Bem-vindo, {user[1]}!")
         else:
-            print("Email ou senha incorretos.")
+            print("Email ou senha incorretos")
     elif opc == 0:
         break
 if conn:

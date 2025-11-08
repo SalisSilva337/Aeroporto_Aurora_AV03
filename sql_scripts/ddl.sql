@@ -27,7 +27,7 @@ CREATE TABLE Voo (
     Local_Partida VARCHAR(100) NOT NULL, 
     Local_Destino VARCHAR(100) NOT NULL, 
     Disponibilidade BOOLEAN NOT NULL,
-    Duracao INTERVAL NOT NULL,
+    Duracao INTERVAL NOT NULL
 ); 
 
 -- Tabela de Aviao
