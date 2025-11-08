@@ -1,4 +1,4 @@
-
+from services.admin_passageiro_service import listar_passageiros,deletar_passageiro
 
 def area_do_admin():
     while True:
@@ -8,6 +8,10 @@ def area_do_admin():
         if adm_opc == 1:
             print("Admin - Passageiros \n 1.Listar Passageiros \n 2.Deletar Passageiro (ID) \n 0.Voltar")
             opc_p = int(input("Digite uma opcao: "))
+            if opc_p == 1:
+                listar_passageiros()
+            elif opc_p == 2:
+                deletar_passageiro()
         elif adm_opc == 2:
             print("Admin - Reservas \n 1.Listar Reservas \n 2.Deletar Reserva (ID) \n 0.Voltar")
             opc_r = int(input("Digite uma opcao: "))

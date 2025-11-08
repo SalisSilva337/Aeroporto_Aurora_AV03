@@ -11,17 +11,16 @@ conn = criar_conexao()
 while True:
     gerar_admin_padrao()
     # os.system("cls")
+    print("BEM VINDO AO AEROPORTO AURORA")
     print(" 1.Cadastrar-se \n 2.Logar \n 0.Sair do Sistema")
     opc = int(input("digite uma opcao: "))
 
     if opc == 1:
         cadastro()
-
     elif opc == 2:
         user = login()
         if user:
             print("Logado com sucesso!")
-
             if user[2] == "admin@email.com":
                 area_do_admin()
             else:
