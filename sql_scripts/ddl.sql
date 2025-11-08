@@ -23,11 +23,13 @@ CREATE TABLE Reserva (
 -- Tabela de Voo
 CREATE TABLE Voo ( 
     ID_voo SERIAL PRIMARY KEY, 
-    ID_reserva INT, 
+    ID_reserva INT not null,
+    id_aviao int not null, 
     Local_Partida VARCHAR(100) NOT NULL, 
     Local_Destino VARCHAR(100) NOT NULL, 
     Disponibilidade BOOLEAN NOT NULL,
-    Duracao INTERVAL NOT NULL
+    Duracao INTERVAL NOT NULL,
+    FOREIGN KEY (id_aviao) REFERENCES Aviao(ID_Aviao)
 ); 
 
 -- Tabela de Aviao

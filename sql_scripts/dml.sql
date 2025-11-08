@@ -22,3 +22,13 @@ INSERT INTO Tripulacao (ID_voo, Pilotos, Navegador, MecanicoRadio, ComissariosBo
 VALUES
 (1, 2, 1, 1, 3, 1),
 (2, 3, 1, 2, 5, 2);
+
+
+-- Inserindo avioes
+INSERT INTO Aviao (Modelo, Capacidade) 
+VALUES
+('Boeing 737-800', 189),
+('Airbus A320neo', 180),
+('Embraer E195-E2', 132),
+('Boeing 777-300ER', 396),
+('Airbus A350-900', 350);
