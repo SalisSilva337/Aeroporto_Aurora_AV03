@@ -48,3 +48,18 @@ def deletar_aviao_service(id):
     finally:
         cursor.close()
         conn.close()
+
+
+def alterar_aviao_service(id):
+    try:
+        conn = criar_conexao()
+        cursor = conn.cursor()
+        query = "DELETE FROM aviao WHERE id_aviao = %s"
+        cursor.execute(query,(id,))
+        conn.commit()
+        print("Aviao deletado com sucesso")
+    except Exception as e:
+        print(f"erro ao deletar aviao: {e}")
+    finally:
+        cursor.close()
+        conn.close()

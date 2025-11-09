@@ -19,5 +19,5 @@ def deletar_aviao():
 
 def alterar_aviao():
     listar_avioes_service()
-    id = int(input("qual aviao voce deseja deletar (pelo id)?"))
+    id = int(input("qual aviao voce deseja alterar (pelo id)?"))
     deletar_aviao_service(id)
