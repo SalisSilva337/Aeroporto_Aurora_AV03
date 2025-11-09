@@ -1,16 +1,16 @@
 from config.db import criar_conexao
-from services.passageiro_service import *
-from services.admin_passageiro_service import *
-from pages.usuario import cadastro, login,area_do_usuario
+from services.user.passageiro_service import *
+from services.admin.admin_passageiro_service import gerar_admin_padrao_service
+from pages.passageiro import cadastro, login,area_do_usuario
 from pages.admin import area_do_admin
 import os
 
 
 conn = criar_conexao()
+gerar_admin_padrao_service()
 
 while True:
-    gerar_admin_padrao()
-    # os.system("cls")
+    os.system("cls")
     print("BEM VINDO AO AEROPORTO AURORA")
     print(" 1.Cadastrar-se \n 2.Logar \n 0.Sair do Sistema")
     opc = int(input("digite uma opcao: "))

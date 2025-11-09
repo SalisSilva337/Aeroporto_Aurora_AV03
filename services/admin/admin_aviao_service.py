@@ -1,7 +1,7 @@
 from config.db import criar_conexao
 
 
-def cadastrar_aviao (modelo,capacidade):
+def cadastrar_aviao_service(modelo,capacidade):
     try:
         conn = criar_conexao()
         cursor = conn.cursor()
@@ -15,7 +15,7 @@ def cadastrar_aviao (modelo,capacidade):
         cursor.close()
         conn.close()
 
-def listar_avioes(): 
+def listar_avioes_service(): 
     try:
         conn = criar_conexao()
         cursor = conn.cursor()
@@ -23,25 +23,23 @@ def listar_avioes():
         cursor.execute(query)
         avioes = cursor.fetchall()
         if avioes:
-            print("Lista de Passageiros")
+            print("Lista de Avioes\n")
             for a in avioes:
-                print(f" ID:{a[0]} \n Nome:{a[1]} \n Email:{a[2]} \n Telefone:{a[3]}\n")
+                print(f" ID:{a[0]} \n Modelo:{a[1]} \n Capacidade:{a[2]} \n")
         else:
-            print("Nenhum passageiro encontrado")
+            print("Nenhum aviao encontrado")
     except Exception as e:
-        print(f"Erro ao encontrar passageiros: {e}")
+        print(f"Erro ao encontrar avioes: {e}")
     finally:
         cursor.close()
         conn.close()
 
 
-def deletar_aviao():
-    listar_avioes()
+def deletar_aviao_service(id):
     try:
         conn = criar_conexao()
         cursor = conn.cursor()
         query = "DELETE FROM aviao WHERE id_aviao = %s"
-        id = int(input("qual aviao voce deseja deletar (pelo id)?"))
         cursor.execute(query,(id,))
         conn.commit()
         print("Aviao deletado com sucesso")

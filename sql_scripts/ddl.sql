@@ -23,7 +23,6 @@ CREATE TABLE Reserva (
 -- Tabela de Voo
 CREATE TABLE Voo ( 
     ID_voo SERIAL PRIMARY KEY, 
-    ID_reserva INT not null,
     id_aviao int not null, 
     Local_Partida VARCHAR(100) NOT NULL, 
     Local_Destino VARCHAR(100) NOT NULL, 
@@ -43,10 +42,10 @@ CREATE TABLE Aviao (
 CREATE TABLE Tripulacao ( 
     ID_tripulacao SERIAL PRIMARY KEY, 
     ID_voo INT NOT NULL, 
-    Pilotos INT NOT NULL, 
-    Navegador INT NOT NULL, 
-    MecanicoRadio INT NOT NULL, 
-    ComissariosBordo INT NOT NULL, 
-    MecanicosVoo INT NOT NULL, 
+    Pilotos INT NOT NULL DEFAULT(2), 
+    Navegador INT NOT NULL DEFAULT(2), 
+    MecanicoRadio INT NOT NULL DEFAULT(2), 
+    ComissariosBordo INT NOT NULL DEFAULT(3), 
+    MecanicosVoo INT NOT NULL DEFAULT(4), 
     FOREIGN KEY (ID_voo) REFERENCES Voo(ID_voo) 
 );
