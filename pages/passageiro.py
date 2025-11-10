@@ -34,4 +34,3 @@ def login():
     return user
 
 
-id = int(input("qual passageiro voce deseja deletar (pelo id)?"))

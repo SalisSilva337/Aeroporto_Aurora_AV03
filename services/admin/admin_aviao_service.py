@@ -19,7 +19,7 @@ def listar_avioes_service():
     try:
         conn = criar_conexao()
         cursor = conn.cursor()
-        query = "SELECT id_aviao, modelo, capacidade FROM aviao"
+        query = "SELECT id_aviao, modelo, capacidade FROM aviao ORDER BY id_aviao"
         cursor.execute(query)
         avioes = cursor.fetchall()
         if avioes:
@@ -50,16 +50,16 @@ def deletar_aviao_service(id):
         conn.close()
 
 
-def alterar_aviao_service(id):
+def alterar_aviao_service(modelo,capacidade,id):
     try:
         conn = criar_conexao()
         cursor = conn.cursor()
-        query = "DELETE FROM aviao WHERE id_aviao = %s"
-        cursor.execute(query,(id,))
+        query = "UPDATE aviao SET modelo =%s, capacidade=%s WHERE id_aviao = %s"
+        cursor.execute(query,(modelo,capacidade,id))
         conn.commit()
-        print("Aviao deletado com sucesso")
+        print("as informacoes do Aviao foram alteradas com sucesso")
     except Exception as e:
-        print(f"erro ao deletar aviao: {e}")
+        print(f"erro ao alterar informarcoes do aviao: {e}")
     finally:
         cursor.close()
         conn.close()

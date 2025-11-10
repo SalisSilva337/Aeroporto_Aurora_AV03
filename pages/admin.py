@@ -1,3 +1,4 @@
+from pages.passageiro import *
 from pages.aviao import *
 from pages.reserva import *
 from pages.voo import *
@@ -24,11 +25,10 @@ def area_do_admin():
 def admin_passageiros():
     print("Admin - Passageiros \n 1.Listar Passageiros \n 2.Deletar Passageiro (ID) \n 0.Voltar")
     opc_p = int(input("Digite uma opcao: "))
-    if opc_p == 1:
-        listar_passageiros()
-    elif opc_p == 2:
-        deletar_passageiro()
-
+    # if opc_p == 1:
+    #     listar_passageiros()
+    # elif opc_p == 2:
+    #     deletar_passageiro()
 def admin_reservas():
     print("Admin - Reservas \n 1.Listar Reservas \n 2.Deletar Reserva (ID) \n 0.Voltar")
     opc_r = int(input("Digite uma opcao: "))

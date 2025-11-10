@@ -13,8 +13,8 @@ CREATE TABLE Reserva (
     ID_passageiro INT NOT NULL,
     ID_voo INT NOT NULL,
     Classe VARCHAR(20) NOT NULL CHECK (Classe IN ('Economica', 'Executiva', 'Primeira Classe')),
-    MetodoPagamento VARCHAR(50) NOT NULL CHECK (MetodoPagamento IN ('PIX', 'DEBITO', 'CREDITO')),
-    QuantidadePassageiros INT NOT NULL,
+    Metodo_Pagamento VARCHAR(50) NOT NULL CHECK (MetodoPagamento IN ('PIX', 'DEBITO', 'CREDITO')),
+    Quantidade_Passageiros INT NOT NULL,
     Data DATE NOT NULL,
     FOREIGN KEY (ID_passageiro) REFERENCES Passageiro(ID_passageiro),
     FOREIGN KEY (ID_voo) REFERENCES Voo(ID_voo)
@@ -44,8 +44,8 @@ CREATE TABLE Tripulacao (
     ID_voo INT NOT NULL, 
     Pilotos INT NOT NULL DEFAULT(2), 
     Navegador INT NOT NULL DEFAULT(2), 
-    MecanicoRadio INT NOT NULL DEFAULT(2), 
-    ComissariosBordo INT NOT NULL DEFAULT(3), 
-    MecanicosVoo INT NOT NULL DEFAULT(4), 
+    Mecanico_Radio INT NOT NULL DEFAULT(2), 
+    Comissarios_Bordo INT NOT NULL DEFAULT(3), 
+    Mecanicos_Voo INT NOT NULL DEFAULT(4), 
     FOREIGN KEY (ID_voo) REFERENCES Voo(ID_voo) 
 );

@@ -13,11 +13,13 @@ def listar_avioes():
 
 def deletar_aviao():
     listar_avioes_service()
-    id = int(input("qual aviao voce deseja deletar (pelo id)?"))
+    id = int(input("qual aviao voce deseja deletar (pelo id)? "))
     deletar_aviao_service(id)
 
 
 def alterar_aviao():
     listar_avioes_service()
-    id = int(input("qual aviao voce deseja alterar (pelo id)?"))
-    deletar_aviao_service(id)
+    id = int(input("qual aviao voce deseja alterar (pelo id)? "))
+    modelo = input("qual o novo modelo do aviao? ")
+    capacidade = input("qual a capacidade maxima que voce deseja por no aviao? ")
+    alterar_aviao_service(modelo,capacidade,id)

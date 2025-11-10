@@ -6,7 +6,7 @@ INSERT INTO Aviao (Modelo, Capacidade) VALUES
 ('Airbus A350-900', 350);
 
 
-INSERT INTO Voo (id_aviao, Local_Partida, Local_Destino, Disponibilidade, Duracao) VALUES
+INSERT INTO Voo (ID_voo, Local_Partida, Local_Destino, Disponibilidade, Duracao) VALUES
 (1, 'São Paulo', 'Rio de Janeiro', TRUE, '01:10'),
 (2, 'Brasília', 'Salvador', TRUE, '02:15'),
 (3, 'Curitiba', 'Belo Horizonte', TRUE, '01:45'),
