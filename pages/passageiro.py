@@ -1,4 +1,5 @@
 from services.user.passageiro_service import *
+from services.admin.admin_passageiro_service import *
 
 def cadastro():
     print("Area de Cadastro")
@@ -32,5 +33,14 @@ def login():
     senha = input("digite sua senha: ")
     user = logar_passageiro(email, senha)
     return user
+
+def listar_passageiros():
+    listar_passageiros_service()
+
+def deletar_passageiro():
+    listar_passageiros_service()
+    id = int(input("qual voo voce deseja deletar (pelo id)? "))
+    deletar_passageiro_service(id)
+
 
 
