@@ -49,12 +49,14 @@ def admin_voos():
         alterar_voo()
 
 def admin_tripulacao():
-    print("Admin - Tripulacao \n 1.Adicionar Tripulacao a um voo \n 2.Remover Tripulacao de um voo \n 0.Voltar")
+    print("Admin - Tripulacao \n 1.Adicionar tripulacao a um voo \n 2.Remover tripulacao de um voo \n 3.Ver todas as tripulacoes \n 0.Voltar")
     opc_t = int(input("Digite uma opcao: "))
     if opc_t == 1:
         inserir_tripulacao()
     elif opc_t == 2:
         remover_tripulacao()
+    elif opc_t == 3:
+        listar_tripulacao()
 
 def admin_avioes():
     print("Admin - Avioes \n 1.Listar Avioes \n 2.Cadastrar Aviao \n 3.Deletar Aviao (ID) 4.Alterar Aviao \n 0.Voltar")

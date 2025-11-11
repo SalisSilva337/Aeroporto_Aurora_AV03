@@ -10,3 +10,6 @@ def remover_tripulacao():
     listar_tripulacao_service()
     id = int(input("qual tripulacao voce deseja remover de um voo (pelo id)? "))
     remover_tripulacao_service(id)
+
+def listar_tripulacao():
+    listar_tripulacao_service()
