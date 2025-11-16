@@ -20,7 +20,7 @@ INSERT INTO Voo (Local_Partida, Local_Destino, Disponibilidade, Duracao, ID_Avia
 ('Porto Alegre', 'Florianópolis', TRUE, '00:50',5);
 
 
-INSERT INTO Reserva (ID_passageiro, ID_voo, Classe, MetodoPagamento, QuantidadePassageiros, Data) VALUES
+INSERT INTO Reserva (ID_passageiro, ID_voo, Classe, Metodo_Pagamento, Quantidade_Passageiros, Data) VALUES
 (1, 1, 'Economica', 'PIX', 1, '2025-11-10'),
 (2, 2, 'Executiva', 'CREDITO', 2, '2025-11-12'),
 (3, 3, 'Primeira Classe', 'DEBITO', 1, '2025-11-15'),
