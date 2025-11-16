@@ -1,37 +1,64 @@
 from services.admin.admin_voo_service import *
+import os 
+
+def cls():
+    os.system("cls" if os.name == "nt" else "clear")
+
+
+def ler_inteiro(msg, minimo=None, maximo=None):
+    while True:
+        try:
+            valor = int(input(msg))
+            if minimo is not None and valor < minimo:
+                print(f"Valor não pode ser menor que {minimo}.")
+                continue
+            if maximo is not None and valor > maximo:
+                print(f"Valor não pode ser maior que {maximo}.")
+                continue
+            return valor
+        except ValueError:
+            print("Entrada inválida! Digite um número inteiro.")
+
+
+def ler_duracao():
+    while True:
+        try:
+            duracao_horas = ler_inteiro("Digite a duração do voo (horas): ", minimo=0)
+            duracao_min = ler_inteiro("Digite a duração do voo (minutos): ", minimo=0, maximo=59)
+
+            return f"{duracao_horas:02}:{duracao_min:02}:00"
+        except:
+            print("Erro inesperado, tente novamente.")
 
 
 def cadastrar_voo():
-    print("Area de Cadastro do voo")
-    id_aviao = int(input("digite o id do aviao: "))
-    local_partida = input("digite o local de partida: ").capitalize()
-    local_destino = input("digite o local de destino: ").capitalize()
-    while True:
-        try:
-            duracao_horas = int(input("Digite a duração do voo (em horas): "))
-            duracao_min = int(input("Digite a duração do voo (em minutos): "))
-            if duracao_horas < 0 or duracao_min < 0 or duracao_min >= 60:
-                print("Valores inválidos! Minutos devem estar entre 0 e 59")
-                continue
-            duracao = f"{duracao_horas:02}:{duracao_min:02}:00"
-            break
-        except ValueError:
-            print("Digite apenas números inteiros para horas e minutos.")
-    cadastrar_voo_service(id_aviao, local_partida, local_destino,duracao)
+    print("Área de Cadastro do Voo")
+
+    id_aviao = ler_inteiro("Digite o ID do avião: ", minimo=1)
+    local_partida = input("Digite o local de partida: ").capitalize()
+    local_destino = input("Digite o local de destino: ").capitalize()
+    duracao = ler_duracao()
+
+    cadastrar_voo_service(id_aviao, local_partida, local_destino, duracao)
+
 
 def listar_voo():
     listar_voo_service()
 
+
 def deletar_voo():
     listar_voo_service()
-    id = int(input("qual voo voce deseja deletar (pelo id)? "))
-    deletar_voo_service(id)
+    id_voo = ler_inteiro("Qual voo você deseja deletar (ID)? ", minimo=1)
+    deletar_voo_service(id_voo)
+
 
 def alterar_voo():
     listar_voo_service()
-    id_voo = int(input("qual voo voce deseja alterar (pelo id)? "))
-    id_aviao = input("qual o novo modelo do aviao? ")
-    local_partida = input("qual o novo local de partida? ")
-    local_destino = input("qual o novo local de destino? ")
-    duracao = input("qual a nova duracao da viagem que voce deseja por no voo? ")
+
+    id_voo = ler_inteiro("Qual voo você deseja alterar (ID)? ", minimo=1)
+    id_aviao = ler_inteiro("Digite o novo ID do avião: ", minimo=1)
+    local_partida = input("Novo local de partida: ").capitalize()
+    local_destino = input("Novo local de destino: ").capitalize()
+    duracao = ler_duracao()
+
     alterar_voo_service(id_voo, id_aviao, local_partida, local_destino, duracao)

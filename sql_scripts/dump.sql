@@ -6,12 +6,12 @@ INSERT INTO Aviao (Modelo, Capacidade) VALUES
 ('Airbus A350-900', 350);
 
 
-INSERT INTO Voo (ID_voo, Local_Partida, Local_Destino, Disponibilidade, Duracao) VALUES
-(1, 'São Paulo', 'Rio de Janeiro', TRUE, '01:10'),
-(2, 'Brasília', 'Salvador', TRUE, '02:15'),
-(3, 'Curitiba', 'Belo Horizonte', TRUE, '01:45'),
-(4, 'Recife', 'Fortaleza', TRUE, '01:00'),
-(5, 'Porto Alegre', 'Florianópolis', TRUE, '00:50');
+INSERT INTO Voo (Local_Partida, Local_Destino, Disponibilidade, Duracao, ID_Aviao) VALUES
+('São Paulo', 'Rio de Janeiro', TRUE, '01:10',1),
+('Brasília', 'Salvador', TRUE, '02:15',2),
+('Curitiba', 'Belo Horizonte', TRUE, '01:45',3),
+('Recife', 'Fortaleza', TRUE, '01:00',4),
+('Porto Alegre', 'Florianópolis', TRUE, '00:50',5);
 
 
 INSERT INTO Reserva (ID_passageiro, ID_voo, Classe, MetodoPagamento, QuantidadePassageiros, Data) VALUES
