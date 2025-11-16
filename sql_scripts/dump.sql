@@ -1,3 +1,9 @@
+INSERT INTO Passageiro (Nome, Email, Telefone, Senha)
+VALUES
+('João Silva', 'joao@email.com', '119999999', '\\x1234abcd'),
+('Maria Souza', 'maria@email.com', '219888888', '\\xa1b2c3d4'),
+('Carlos Lima', 'carlos@email.com', '319777777', '\\x99aa88cc');
+
 INSERT INTO Aviao (Modelo, Capacidade) VALUES
 ('Boeing 737-800', 189),
 ('Airbus A320neo', 180),

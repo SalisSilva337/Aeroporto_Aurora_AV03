@@ -23,7 +23,7 @@ CREATE TABLE Reserva (
 -- Tabela de Voo
 CREATE TABLE Voo ( 
     ID_voo SERIAL PRIMARY KEY, 
-    id_aviao int not null, 
+    id_aviao int not null default(1), 
     Local_Partida VARCHAR(100) NOT NULL, 
     Local_Destino VARCHAR(100) NOT NULL, 
     Disponibilidade BOOLEAN NOT NULL,

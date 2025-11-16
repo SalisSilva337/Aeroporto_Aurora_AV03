@@ -5,7 +5,6 @@ from pages.passageiro import cadastro, login,area_do_usuario
 from pages.admin import area_do_admin
 import os
 
-
 conn = criar_conexao()
 gerar_admin_padrao_service()
 

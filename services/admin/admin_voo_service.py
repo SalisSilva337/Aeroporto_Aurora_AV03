@@ -1,12 +1,12 @@
 from config.db import criar_conexao
 
 
-def cadastrar_voo_service (id_aviao, local_partida, local_destino,duracao):
+def cadastrar_voo_service (id_aviao, local_partida, local_destino, duracao):
     try:
         conn = criar_conexao()
         cursor = conn.cursor()
         query = "INSERT INTO voo (id_aviao, local_partida, local_destino, duracao) VALUES (%s,%s,%s,%s)"
-        cursor.execute(query,(id_aviao,local_partida, local_destino,duracao))
+        cursor.execute(query,(id_aviao,local_partida, local_destino, duracao))
         conn.commit()
         print("Voo Cadastrado")
     except Exception as e:
