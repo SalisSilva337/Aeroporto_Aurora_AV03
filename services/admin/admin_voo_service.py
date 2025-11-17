@@ -27,6 +27,7 @@ def listar_voo_service():
             print("Lista de Voo\n")
             for a in avioes:
                 print(f"\nID:{a[0]} \n ID_Aviao:{a[1]} \n Local Partida:{a[2]} \n Local Destino:{a[3]} \n Duracao:{a[4]}")
+                print("-" * 40)
         else:
             print("Nenhum aviao encontrado")
     except Exception as e:
