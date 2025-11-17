@@ -37,6 +37,7 @@ def listar_passageiros_service():
             for p in passageiros:
                 if p[1] != "admin" and p[2] != "admin@email.com":
                     print(f" ID:{p[0]} \n Nome:{p[1]} \n Email:{p[2]} \n Telefone:{p[3]}\n")
+                    print("-" * 40)
         else:
             print("Nenhum passageiro encontrado")
     except Exception as e:

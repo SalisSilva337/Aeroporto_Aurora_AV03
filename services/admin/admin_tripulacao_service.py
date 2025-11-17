@@ -6,7 +6,7 @@ def inserir_tripulacao_ao_voo_service (id_voo):
         conn = criar_conexao()
         cursor = conn.cursor()
         query = "INSERT INTO tripulacao (id_voo) VALUES (%s)"
-        cursor.execute(query,(id_voo))
+        cursor.execute(query,(id_voo,))
         conn.commit()
         print("Tripulacao Cadastrada")
     except Exception as e:
@@ -19,11 +19,11 @@ def listar_tripulacao_service():
     try:
         conn = criar_conexao()
         cursor = conn.cursor()
-        query = "SELECT t.id_tripulacao, a.Nome_Aviao AS Aviao, v.Local_Partida, v.Local_Destino FROM Tripulacao t JOIN Voo v ON t.id_voo = v.id_voo JOIN Aviao a ON v.id_aviao = a.id_aviao"
+        query = "SELECT t.id_tripulacao, a.modelo AS Aviao, v.Local_Partida, v.Local_Destino FROM Tripulacao t JOIN Voo v ON t.id_voo = v.id_voo JOIN Aviao a ON v.id_aviao = a.id_aviao"
         cursor.execute(query)
         resultados = cursor.fetchall()
         if resultados:
-            print("\n Lista de Tripulações em cada Voo\n")
+            print("\nLista de Tripulações em cada Voo\n")
             for linha in resultados:
                 print(f"ID Tripulação: {linha[0]}")
                 print(f"Avião: {linha[1]}")
@@ -32,7 +32,6 @@ def listar_tripulacao_service():
                 print("-" * 40)
         else:
             print("Nenhuma tripulação encontrada.")
-            
     except Exception as e:
         print(f"Erro ao listar tripulações: {e}")
     finally:

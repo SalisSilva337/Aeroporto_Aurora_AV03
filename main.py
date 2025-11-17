@@ -40,7 +40,7 @@ while True:
                 area_do_usuario(user)
         else:
             print("Email ou senha incorretos")
-            input("Pressione ENTER para continuar")
+            input("Pressione ENTER para continuar...")
     elif opc == 0:
         break
 if conn:

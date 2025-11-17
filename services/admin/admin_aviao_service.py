@@ -25,7 +25,8 @@ def listar_avioes_service():
         if avioes:
             print("Lista de Avioes\n")
             for a in avioes:
-                print(f" ID:{a[0]} \n Modelo:{a[1]} \n Capacidade:{a[2]} \n")
+                print(f" ID_Aviao:{a[0]} \n Modelo:{a[1]} \n Capacidade:{a[2]} \n")
+                print("-" * 40)
         else:
             print("Nenhum aviao encontrado")
     except Exception as e:
