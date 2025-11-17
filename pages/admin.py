@@ -10,7 +10,7 @@ def cls():
     os.system("cls" if os.name == "nt" else "clear")
 
 
-def ler_opcao(msg, minimo=0, maximo=9999):
+def ler_opcao(msg, minimo, maximo):
     while True:
         try:
             valor = int(input(msg))

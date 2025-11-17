@@ -1,13 +1,14 @@
 from services.user.passageiro_service import *
 from services.admin.admin_passageiro_service import *
 import os
+import re
 
 
 def cls():
     os.system("cls" if os.name == "nt" else "clear")
 
 
-def ler_inteiro(msg, minimo=None, maximo=None):
+def ler_inteiro(msg, minimo, maximo):
     while True:
         try:
             valor = int(input(msg))
@@ -32,8 +33,19 @@ def cadastro():
         nome = input("Digite seu nome: ").strip().capitalize()
 
     email = input("Digite seu email: ").strip()
-    while email == "":
-        print("E-mail não pode ser vazio.")
+
+    padrao_email = r"^[\w\.-]+@[\w\.-]+\.\w+$"
+
+    while True:
+        if email == "":
+            print("E-mail não pode ser vazio.")
+        elif not re.match(padrao_email, email):
+            print("Formato de e-mail inválido!")
+        elif email_existe(email):        
+            print("Este e-mail já está cadastrado!")
+        else:
+            break
+
         email = input("Digite seu email: ").strip()
 
     telefone = input("Digite seu telefone: ").strip()
@@ -47,7 +59,6 @@ def cadastro():
         senha = input("Digite sua senha: ").strip()
 
     cadastrar_passageiro(nome, email, senha, telefone)
-
 
 def login():
     cls()
@@ -64,8 +75,9 @@ def area_do_usuario(user):
     while True:
         cls()
         print(f"Área do(a) {user[1]}, o que você deseja fazer?")
-        print(" 1. Fazer uma Reserva")
-        print(" 2. Listar Voos")
+        print(" 1.Fazer uma Reserva")
+        print(" 2.Listar Voos")
+        print(" 3.Cancelar Reserva")
         print(" 0. Deslogar")
 
         opc = ler_inteiro("Digite uma opção: ", minimo=0, maximo=2)
@@ -75,6 +87,9 @@ def area_do_usuario(user):
             input("\nPressione ENTER para continuar...")
         elif opc == 2:
             print("listar voos")
+            input("\nPressione ENTER para continuar...")
+        elif opc == 3:
+            print("cancelar reserva")
             input("\nPressione ENTER para continuar...")
         elif opc == 0:
             break
@@ -89,6 +104,6 @@ def deletar_passageiro():
     cls()
     listar_passageiros_service()
 
-    id_pass = ler_inteiro("Qual passageiro você deseja deletar (pelo ID)? ", minimo=1)
+    id_pass = int(input("Qual passageiro você deseja deletar (pelo ID)? "))
 
     deletar_passageiro_service(id_pass)

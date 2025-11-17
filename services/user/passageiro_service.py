@@ -19,9 +19,9 @@ def cadastrar_passageiro (nome, email, senha, telefone):
 
 def logar_passageiro(email, password):
     
-    con = criar_conexao()
-    cursor = con.cursor()
     try:
+        conn = criar_conexao()
+        cursor = conn.cursor()
         query = "SELECT * FROM passageiro WHERE email=%s"
         cursor.execute(query, (email,))
         user = cursor.fetchone()
@@ -30,6 +30,22 @@ def logar_passageiro(email, password):
         return None
     except Exception as e:
         print(e)
+    finally: 
+        conn.close()
+        cursor.close()
 
 
 
+def email_existe(email):
+    try:
+        conn = criar_conexao()
+        cursor = conn.cursor()
+        cursor.execute("SELECT 1 FROM passageiro WHERE email = %s", (email,))
+        existe = cursor.fetchone() is not None
+        return existe
+    except Exception as e:
+        print(e)
+    finally:
+        conn.close()
+        cursor.close()
+    

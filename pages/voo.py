@@ -34,7 +34,7 @@ def ler_duracao():
 def cadastrar_voo():
     print("Área de Cadastro do Voo")
 
-    id_aviao = ler_inteiro("Digite o ID do avião: ", minimo=1)
+    id_aviao = int(input("Digite o ID do avião: "))
     local_partida = input("Digite o local de partida: ").capitalize()
     local_destino = input("Digite o local de destino: ").capitalize()
     duracao = ler_duracao()
@@ -48,15 +48,15 @@ def listar_voo():
 
 def deletar_voo():
     listar_voo_service()
-    id_voo = ler_inteiro("Qual voo você deseja deletar (ID)? ", minimo=1)
+    id_voo = int(input("Qual voo você deseja deletar (ID)? "))
     deletar_voo_service(id_voo)
 
 
 def alterar_voo():
     listar_voo_service()
 
-    id_voo = ler_inteiro("Qual voo você deseja alterar (ID)? ", minimo=1)
-    id_aviao = ler_inteiro("Digite o novo ID do avião: ", minimo=1)
+    id_voo = int(input("Qual voo você deseja alterar (ID)? "))
+    id_aviao = int(input("Digite o novo ID do avião: "))
     local_partida = input("Novo local de partida: ").capitalize()
     local_destino = input("Novo local de destino: ").capitalize()
     duracao = ler_duracao()

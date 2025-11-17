@@ -11,7 +11,9 @@ gerar_admin_padrao_service()
 while True:
     os.system("cls")
     print("BEM VINDO AO AEROPORTO AURORA")
-    print(" 1.Cadastrar-se \n 2.Logar \n 0.Sair do Sistema")
+    print(" 1.Cadastrar-se")
+    print(" 2.Logar")
+    print(" 0.Sair do Sistema")
     opc = int(input("digite uma opcao: "))
 
     if opc == 1:
@@ -27,6 +29,7 @@ while True:
                 area_do_usuario(user)
         else:
             print("Email ou senha incorretos")
+            input("Pressione ENTER para continuar")
     elif opc == 0:
         break
 if conn:
