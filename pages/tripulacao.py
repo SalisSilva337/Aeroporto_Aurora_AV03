@@ -5,7 +5,6 @@ import os
 def cls():
     os.system("cls" if os.name == "nt" else "clear")
 
-
 def inserir_tripulacao():
     print("Área de Cadastro da Tripulação")
     listar_voo_service()

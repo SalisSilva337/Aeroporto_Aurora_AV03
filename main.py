@@ -8,13 +8,24 @@ import os
 conn = criar_conexao()
 gerar_admin_padrao_service()
 
+def ler_opcao(msg, minimo, maximo):
+    while True:
+        try:
+            valor = int(input(msg))
+            if valor < minimo or valor > maximo:
+                print(f"Opção inválida! Digite um número entre {minimo} e {maximo}.")
+            else:
+                return valor
+        except ValueError:
+            print("Entrada inválida! Digite um número inteiro.")
+
 while True:
     os.system("cls")
     print("BEM VINDO AO AEROPORTO AURORA")
     print(" 1.Cadastrar-se")
     print(" 2.Logar")
     print(" 0.Sair do Sistema")
-    opc = int(input("digite uma opcao: "))
+    opc = ler_opcao("digite uma opcao: ",0,2)
 
     if opc == 1:
         cadastro()

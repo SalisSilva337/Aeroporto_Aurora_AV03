@@ -5,7 +5,6 @@ from pages.voo import *
 from pages.tripulacao import *
 import os
 
-
 def cls():
     os.system("cls" if os.name == "nt" else "clear")
 

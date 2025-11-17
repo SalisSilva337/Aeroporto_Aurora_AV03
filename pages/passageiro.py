@@ -3,12 +3,11 @@ from services.admin.admin_passageiro_service import *
 import os
 import re
 
-
 def cls():
     os.system("cls" if os.name == "nt" else "clear")
 
 
-def ler_inteiro(msg, minimo, maximo):
+def ler_opcao(msg, minimo, maximo):
     while True:
         try:
             valor = int(input(msg))
@@ -80,7 +79,7 @@ def area_do_usuario(user):
         print(" 3.Cancelar Reserva")
         print(" 0. Deslogar")
 
-        opc = ler_inteiro("Digite uma opção: ", minimo=0, maximo=2)
+        opc = ler_opcao("Digite uma opção: ", minimo=0, maximo=2)
 
         if opc == 1:
             print("reservar")
