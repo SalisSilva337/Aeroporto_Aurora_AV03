@@ -1,8 +1,9 @@
-INSERT INTO Passageiro (Nome, Email, Telefone, Senha)
-VALUES
-('João Silva', 'joao@email.com', '119999999', '\\x1234abcd'),
-('Maria Souza', 'maria@email.com', '219888888', '\\xa1b2c3d4'),
-('Carlos Lima', 'carlos@email.com', '319777777', '\\x99aa88cc');
+INSERT INTO Passageiro (Nome, Email, Telefone, Senha) VALUES
+('João Silva', 'joao@email.com', '119999999', '$2b$12$8jEExWMEvkpzUdi6oX8uMOPwz8j2sSsx1noHVyMsMTs7theE4tEmK'),
+('Maria Souza', 'maria@email.com', '219888888', '$2b$12$wqU9gDLKLOzOHESR0WrP3OsTz4lsCH2invT07TN.eQv5MR.ka2/3C'),
+('Carlos Lima', 'carlos@email.com', '319777777', '$2b$12$NuxUQ9CnhQz7HWVkHLyAYOnhkVB92hDA/o9RIPaozNYXk/rh0/leO'),
+('Ana Pereira', 'ana@email.com', '419666666', '$2b$12$qGUsYhqoBzHKpSwrjBYQ9uoIdGPuSPTeM2B6VZK2myxgJA/lk/.cu'),
+('Bruno Castro', 'bruno@email.com', '619555555', '$2b$12$g4kqxSaWzG7tmV3pT2zlce8HDbkPdlT/UzXOScd2D326O1V8.MHtm');
 
 INSERT INTO Aviao (Modelo, Capacidade) VALUES
 ('Boeing 737-800', 189),
