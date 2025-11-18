@@ -60,7 +60,7 @@ def alterar_aviao_service(modelo,capacidade,id):
         conn.commit()
         print("as informacoes do Aviao foram alteradas com sucesso")
     except Exception as e:
-        print(f"erro ao alterar informarcoes do aviao: {e}")
+        print(f"erro ao alterar informacoes do aviao: {e}")
     finally:
         cursor.close()
         conn.close()

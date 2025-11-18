@@ -13,7 +13,7 @@ CREATE TABLE Reserva (
     ID_passageiro INT NOT NULL,
     ID_voo INT NOT NULL,
     Classe VARCHAR(20) NOT NULL CHECK (Classe IN ('Economica', 'Executiva', 'Primeira Classe')),
-    Metodo_Pagamento VARCHAR(50) NOT NULL CHECK (MetodoPagamento IN ('PIX', 'DEBITO', 'CREDITO')),
+    Metodo_Pagamento VARCHAR(50) NOT NULL CHECK (Metodo_Pagamento IN ('PIX', 'DEBITO', 'CREDITO')),
     Quantidade_Passageiros INT NOT NULL,
     Data DATE NOT NULL,
     FOREIGN KEY (ID_passageiro) REFERENCES Passageiro(ID_passageiro),
@@ -26,7 +26,6 @@ CREATE TABLE Voo (
     id_aviao int not null default(1), 
     Local_Partida VARCHAR(100) NOT NULL, 
     Local_Destino VARCHAR(100) NOT NULL, 
-    Disponibilidade BOOLEAN NOT NULL,
     Duracao INTERVAL NOT NULL,
     FOREIGN KEY (id_aviao) REFERENCES Aviao(ID_Aviao)
 ); 

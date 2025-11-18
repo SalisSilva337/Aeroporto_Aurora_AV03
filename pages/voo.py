@@ -35,8 +35,8 @@ def cadastrar_voo():
     print("Área de Cadastro do Voo")
 
     id_aviao = int(input("Digite o ID do avião: "))
-    local_partida = input("Digite o local de partida: ").capitalize()
-    local_destino = input("Digite o local de destino: ").capitalize()
+    local_partida = input("Digite o local de partida: ").upper()
+    local_destino = input("Digite o local de destino: ").upper()
     duracao = ler_duracao()
 
     cadastrar_voo_service(id_aviao, local_partida, local_destino, duracao)
@@ -57,8 +57,8 @@ def alterar_voo():
 
     id_voo = int(input("Qual voo você deseja alterar (ID)? "))
     id_aviao = int(input("Digite o novo ID do avião: "))
-    local_partida = input("Novo local de partida: ").capitalize()
-    local_destino = input("Novo local de destino: ").capitalize()
+    local_partida = input("Novo local de partida: ").upper()
+    local_destino = input("Novo local de destino: ").upper()
     duracao = ler_duracao()
 
     alterar_voo_service(id_voo, id_aviao, local_partida, local_destino, duracao)
