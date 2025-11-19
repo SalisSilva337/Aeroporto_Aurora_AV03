@@ -12,7 +12,6 @@ INSERT INTO Aviao (Modelo, Capacidade) VALUES
 ('Boeing 777-300ER', 396),
 ('Airbus A350-900', 350);
 
-
 INSERT INTO Voo (Local_Partida, Local_Destino, Duracao, ID_Aviao) VALUES
 ('SÃO PAULO', 'RIO DE JANEIRO', '01:10', 1),
 ('BRASÍLIA', 'SALVADOR', '02:15', 2),

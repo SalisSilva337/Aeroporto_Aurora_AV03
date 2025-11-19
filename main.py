@@ -8,6 +8,9 @@ import os
 conn = criar_conexao()
 gerar_admin_padrao_service()
 
+def cls():
+    os.system("cls" if os.name == "nt" else "clear")
+
 def ler_opcao(msg, minimo, maximo):
     while True:
         try:
@@ -20,7 +23,7 @@ def ler_opcao(msg, minimo, maximo):
             print("Entrada inválida! Digite um número inteiro.")
 
 while True:
-    os.system("cls")
+    cls()
     print("BEM VINDO AO AEROPORTO AURORA")
     print(" 1.Cadastrar-se")
     print(" 2.Logar")
