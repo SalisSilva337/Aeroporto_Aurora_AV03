@@ -1,7 +1,7 @@
 from config.db import criar_conexao
 from services.user.passageiro_service import *
 from services.admin.admin_passageiro_service import gerar_admin_padrao_service
-from pages.passageiro import cadastro, login,area_do_usuario
+from pages.user import cadastro, login,area_do_usuario
 from pages.admin import area_do_admin
 import os
 

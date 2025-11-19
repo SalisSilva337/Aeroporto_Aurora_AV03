@@ -23,7 +23,6 @@ def cadastrar_aviao():
 def listar_avioes():
     cls()
     listar_avioes_service()
-    input("\nPressione ENTER para continuar...")
 
 
 def deletar_aviao():
