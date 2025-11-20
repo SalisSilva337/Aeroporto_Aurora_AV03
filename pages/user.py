@@ -3,6 +3,7 @@ from pages.voo import listar_voo
 from services.user.passageiro_service import *
 import os
 import re
+from getpass import getpass
 
 def cls():
     os.system("cls" if os.name == "nt" else "clear")
@@ -43,16 +44,19 @@ def cadastro():
             print("Este e-mail já está cadastrado!")
         else:
             break
-    telefone = int(input("Digite seu telefone: "))
-    while telefone == "":
-        print("Telefone não pode ser vazio.")
-        telefone = int(input("Digite seu telefone: "))
         
+    while True:
+        try:
+            telefone = int(input("Digite seu telefone: "))
+            break  # saiu do loop, valor válido
+        except ValueError:
+            print("Telefone inválido! Digite apenas números.")
 
-    senha = input("Digite sua senha: ").strip()
+        
+    senha = getpass("Digite sua senha: ").strip()
     while senha == "":
         print("Senha não pode ser vazia.")
-        senha = input("Digite sua senha: ").strip()
+        senha = getpass("Digite sua senha: ").strip()
 
 
     cadastrar_passageiro(nome, email, senha, telefone)
@@ -63,7 +67,7 @@ def login():
     print("Área de Login")
 
     email = input("Digite seu email: ").strip()
-    senha = input("Digite sua senha: ").strip()
+    senha = getpass("Digite sua senha: ").strip()
 
     user = logar_passageiro(email, senha)
     return user
